@@ -3,34 +3,14 @@ require './vendor/autoload.php';
 
 function solution(array $a)
 {
-	if (empty($a)) {
-		return 1;
-	}
+	$count = count($a);
+	array_push($a, 0);
 
-	sort($a);
+	$sum = array_sum($a);
 
-	end($a);
-	$max = current($a);
-	reset($a);
+	$expectedSum = (((3*$count) + pow($count, 2)) / 2) + 1;
 
-	$n = $max - 1;
-
-	$i		 = 0;
-	$missing = NULL;
-
-	while ($i <= $n) {
-		if ($a[$i] !== $i + 1) {
-			$missing = $i + 1;
-			break;
-		}
-		$i++;
-	}
-
-	if (is_null($missing)) {
-		return $max + 1;
-	}
-
-	return $missing;
+	return (int) abs($sum - $expectedSum);
 }
 
 
