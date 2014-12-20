@@ -9,15 +9,28 @@ function solution(array $a)
 
 	sort($a);
 
-	$max = max($a);
-	$all = range(1, $max);
+	end($a);
+	$max = current($a);
+	reset($a);
 
-	$diff = array_diff($all, $a);
-	if (empty($diff)) {
+	$n = $max - 1;
+
+	$i		 = 0;
+	$missing = NULL;
+
+	while ($i <= $n) {
+		if ($a[$i] !== $i + 1) {
+			$missing = $i + 1;
+			break;
+		}
+		$i++;
+	}
+
+	if (is_null($missing)) {
 		return $max + 1;
 	}
 
-	return current($diff);
+	return $missing;
 }
 
 
