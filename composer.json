@@ -1,0 +1,12 @@
+{
+	"authors": [
+		{
+			"name": "Martin Bazik",
+			"homepage": "http://bazo.sk"
+		}
+	],
+	"require": {
+		"php": ">= 5.6.0",
+		"nette/tester": "@dev"
+	}
+}
